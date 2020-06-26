@@ -1,10 +1,8 @@
-import HelloWorld from '../components'
 
 export default function Home() {
   return (
     <div>
-      <h1>Simple Storybook Example</h1>
-      <HelloWorld />
+      <h1>Simple Storybook Exampl1e</h1>
     </div>
   )
 }
