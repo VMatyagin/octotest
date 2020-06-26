@@ -21,6 +21,7 @@ export const Attrs = () => {
     <ThemeProvider theme={BasicTheme}>
       <div>
         <Text>Обычный текст</Text>
+        <Text></Text>
       </div>
       <div>
         <Text size="small">Малый текст</Text>
@@ -39,6 +40,12 @@ export const Attrs = () => {
       </div>
       <div>
         <Text size='large' bold>Жирная крупная пешка</Text>
+      </div>
+      <div>
+        <Text uppercase='large'>Крупный текст капсом</Text>
+      </div>
+      <div>
+        <Text uppercase='small'>Мелкий текст капсом</Text>
       </div>
     </ThemeProvider>
   );

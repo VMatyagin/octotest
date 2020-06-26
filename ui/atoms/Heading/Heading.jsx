@@ -2,7 +2,7 @@ import styled, { css, StyledProps } from "styled-components";
 import { textBase } from "../../utills/styles";
 import { device } from "../../utills/variables";
 
-const sizeStyle = (props: StyledProps<HeadingProps>) => {
+const sizeStyle = (props) => {
   const headingTheme = props.theme.heading[props.level - 1];
 
   return css`
@@ -18,13 +18,10 @@ const sizeStyle = (props: StyledProps<HeadingProps>) => {
   `;
 };
 
-export const Heading = styled.h1.attrs((props: HeadingProps) => ({
+export const Heading = styled.h1.attrs((props) => ({
   as: `h${props.level}`,
-}))<HeadingProps>`
+}))`
   ${textBase}
   ${(props) => sizeStyle(props)}
 `;
 
-interface HeadingProps {
-  level: 1 | 2 | 3 | 4;
-}

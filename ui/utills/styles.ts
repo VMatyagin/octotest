@@ -73,6 +73,7 @@ const fontTheme = {
     family: "Montserrat",
     weight: "normal",
     style: "normal",
+    letterSpacing: "0.15em",
   },
   medium: {
     size: "18px",
@@ -84,6 +85,13 @@ const fontTheme = {
     size: "20px",
     family: "Montserrat",
     weight: "normal",
+    style: "normal",
+    letterSpacing: "0.2em",
+  },
+  link: {
+    size: "18px",
+    family: "Montserrat",
+    weight: "bols",
     style: "normal",
   },
 };
@@ -98,15 +106,42 @@ const lineTheme = {
   large: {
     height: "160%",
   },
+  uppercase: {
+    height: "140%",
+  },
+  link: {
+    height: "160%",
+  },
 };
+
+const buttonTheme = {
+  border: {
+    radius: "8px",
+    width: "2px",
+  },
+  size: {
+    medium: {
+      width: "126px",
+      height: "50px",
+    },
+    large: {
+      width: "167px",
+      height: "60px",
+    },
+  },
+}
 
 export const BasicTheme = {
   font: fontTheme,
   line: lineTheme,
   colors: {
     default: "#333333",
+    brand: "#00A4F7",
+    hover: "#128ACE",
+    white: "#FFFFFF",
   },
   heading: headingTheme,
+  button: buttonTheme,
 };
 
 export const GlobalStyles = createGlobalStyle`
