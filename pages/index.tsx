@@ -1,8 +1,9 @@
+import { Heading } from "../ui/atoms";
 
 export default function Home() {
   return (
     <div>
-      <h1>Simple Storybook Exampl1e</h1>
+      <Heading level={1}>Мобилка Simple Storybook Exampl1e</Heading>
     </div>
   )
 }
