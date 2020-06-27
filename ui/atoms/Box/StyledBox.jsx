@@ -5,5 +5,4 @@ export const StyledBox = styled.section`
   flex-direction: ${(props) => (props.direction ? props.direction : "column")};
   align-items: ${(props) => (props.align ? props.align : "start")};
   justify: ${(props) => (props.justify ? props.justify : "start")};
-  ${(props) => console.log(123, props)}
 `;

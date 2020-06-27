@@ -18,6 +18,9 @@ export const All = () => {
         <Button size="large" primary>
           Big Button
         </Button>
+        <Button primary isLoading>
+          Big Button
+        </Button>
       </Box>
     </ThemeProvider>
   );
