@@ -3,6 +3,7 @@ interface BoxProps {
     align?: AlignContentType
     justify?: JustifyContentType
     background?: BackgroundType;
+    gap?: GapType
   }
   
 declare const Box: React.FC<BoxProps>

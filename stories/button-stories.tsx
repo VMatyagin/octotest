@@ -8,12 +8,16 @@ export default { component: "Button", title: "Button" };
 export const All = () => {
   return (
     <ThemeProvider theme={BasicTheme}>
-      <Box>
+      <Box gap="small">
         <Button>Default</Button>
         <Button disabled>Disabled</Button>
         <Button primary>Primary</Button>
-        <Button full primary>Full</Button>
-        <Button size='large' primary>Big Button</Button>
+        <Button full primary>
+          Full
+        </Button>
+        <Button size="large" primary>
+          Big Button
+        </Button>
       </Box>
     </ThemeProvider>
   );

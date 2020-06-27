@@ -131,6 +131,13 @@ const buttonTheme = {
   },
 }
 
+const gapTheme = {
+  small: '6px',
+  medium: '22px',
+  large: '41px',
+
+}
+
 export const BasicTheme = {
   font: fontTheme,
   line: lineTheme,
@@ -142,6 +149,7 @@ export const BasicTheme = {
   },
   heading: headingTheme,
   button: buttonTheme,
+  gap: gapTheme,
 };
 
 export const GlobalStyles = createGlobalStyle`

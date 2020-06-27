@@ -1,8 +1,33 @@
-import styled from "styled-components";
+import { StyledBox } from "./StyledBox"
+import { Children } from 'react'
+import { Gap } from '../Gap'
 
-export const Box = styled.section`
-  display: flex;
-  flex-direction: ${(props) => (props.direction ? props.direction : "column")};
-  align-items: ${(props) => props.align ? props.align : "start"};
-  justify: ${(props) => props.justify ? props.justify : "start"};
-`;
+export const Box = ({children, gap, ...rest}) => {
+  let content = children
+  if (gap && gap !== 'none') {
+    content = []
+    let firstIndex
+    Children.forEach(children, (child, index) => {
+      if (child) {
+        if (firstIndex === undefined) {
+          firstIndex = index
+        } else {
+          content.push(
+            <Gap
+              key={`gap-${index}`}
+              gap={gap}
+            />
+          )
+        }
+      }
+      content.push(child)
+    })
+  }
+  console.log(content);
+  
+
+  return (
+    <StyledBox {...rest}>
+      {content}
+    </StyledBox>)
+}
