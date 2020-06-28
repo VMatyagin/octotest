@@ -1,8 +1,9 @@
 import styled, { css } from "styled-components";
-import { textBase } from "../../utills/styles";
+import { textBase, listBase, tableBase } from "../../utills/styles";
 
-const fontStyle = ({ bold, italic }) => {
+const fontStyle = ({ bold, italic, color, theme }) => {
   let styles = [];
+  let colorIsExist = theme.colors[color];
 
   bold &&
     styles.push(css`
@@ -16,6 +17,11 @@ const fontStyle = ({ bold, italic }) => {
     !bold &&
     styles.push(css`
       font-family: Open Sans;
+    `);
+
+  colorIsExist &&
+    styles.push(css`
+      color: ${colorIsExist};
     `);
   return styles;
 };
@@ -31,19 +37,42 @@ const fontSize = (props) => {
       line-height: ${lineHeightTheme.height};
     `,
   ];
-  props.uppercase && styles.push(css`
-    font-weight: bold;
-    text-transform: uppercase;
-    line-height: ${props.theme.line.uppercase.height};
-    letter-spacing: ${props.theme.font[props.uppercase].letterSpacing}
-  `)
+  props.uppercase &&
+    styles.push(css`
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: ${props.theme.line.uppercase.height};
+      letter-spacing: ${props.theme.font[props.uppercase].letterSpacing};
+    `);
   return styles;
 };
 
+const handleSize = ({ width, maxWidth, height }) => {
+  let styles = [];
+  if (width && width !== "none") {
+    styles.push(css`
+      width: ${width};
+    `);
+  }
+  if (maxWidth && maxWidth !== "none") {
+    styles.push(css`
+      max-width: ${maxWidth};
+    `);
+  }
+  if (height && height !== "none") {
+    styles.push(css`
+      height: ${height};
+    `);
+  }
+  return styles;
+};
 const Text = styled.span`
   ${textBase};
-  ${(props) => fontSize(props)}
-  ${(props) => fontStyle(props)}
+  ${listBase};
+  ${tableBase};
+  ${(props) => fontSize(props)};
+  ${(props) => fontStyle(props)};
+  ${(props) => handleSize(props)};
 `;
 
 export { Text };

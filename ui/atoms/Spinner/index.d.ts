@@ -1,3 +1,3 @@
-declare const Anchor: React.FC;
+declare const Spinner: React.FC;
 
 export { Spinner };

@@ -4,8 +4,13 @@ interface ButtonProps {
   disabled?: boolean;
   isLoading?: boolean;
   full?: boolean;
+  clipboard?: boolean
+  height?: SizeType;
+  width?: SizeType;
+  position?: 'relative' | 'absolute'
+
 }
 
-declare const Button: React.FC<ButtonProps>;
+declare const Button: React.FC<ButtonProps & JSX.IntrinsicElements['button']>;
 
 export { Button };

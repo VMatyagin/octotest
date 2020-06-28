@@ -2,7 +2,7 @@ import { StyledBox } from "./StyledBox";
 import { Children } from "react";
 import { Gap } from "../Gap";
 
-export const Box = ({ children, gap, ...rest }) => {
+export const Box = React.forwardRef(({ children, gap, ...rest }, ref) => {
   let content = children;
   if (gap && gap !== "none") {
     content = [];
@@ -19,5 +19,7 @@ export const Box = ({ children, gap, ...rest }) => {
     });
   }
 
-  return <StyledBox {...rest}>{content}</StyledBox>;
-};
+  return <StyledBox ref={ref} {...rest}>{content}</StyledBox>;
+});
+
+Box.displayName = "Box";

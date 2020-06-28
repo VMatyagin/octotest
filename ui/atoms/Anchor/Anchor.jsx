@@ -11,7 +11,7 @@ const fontStyle = (props) => {
       font-weight: ${fontTheme.weight};
       line-height: ${lineHeightTheme.height};
       font-weight: bold;
-      color: ${props.theme.colors.brand};
+      color: ${props.theme.colors.basic_dark} !important;
       text-decoration: none;
     `,
   ];

@@ -1,4 +1,10 @@
 export type sizeType = 'medium' | 'large' | 'small'
-export type AlignContentType = "start" | "center" | "end" | "between" | "around" | "stretch";
-export type JustifyContentType = "start" | "center" | "end" | "between" | "around" | "stretch";
+export type AlignContentType = "start" | "center" | "end" | "space-between" | "space-around" | "stretch";
+export type JustifyContentType = "start" | "center" | "end" | "space-between" | "space-around" | "stretch";
 export type GapType = "small" | "medium" | "large";
+export type FillType = true | "vertical" | "horizontal";
+export type PadType = "small" | "medium" | "large" | string
+export type PolymorphicType = keyof JSX.IntrinsicElements | React.ComponentType<any>
+export type SizeType = "auto" | string
+export type ColorType = string
+export type PlaceHolderType = string | JSX.Element | React.ReactNode;

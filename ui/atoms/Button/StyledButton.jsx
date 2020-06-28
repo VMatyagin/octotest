@@ -23,9 +23,15 @@ const buttonStyles = (props) => {
     height: ${button.size[themeSize].height};
     width: ${button.size[themeSize].width};
     border-width: ${button.border.width};
+    border-style: solid;
     border-radius: ${button.border.radius};
     border-color: ${colors.brand};
     background-color: ${colors.white};
+    word-break: break-all;
+    box-sizing: border-box;
+    padding: 10px 18px;
+    cursor: pointer;
+    overflow: hidden;
 
     &:focus {
       outline: 0;
@@ -43,12 +49,22 @@ const buttonStyles = (props) => {
       }
     `);
 
-    props.disabled &&
+  props.clipboard &&
+    styles.push(css`
+      border: none;
+      background-color: ${colors.clipboard};
+      color: ${colors.default};
+      text-decoration: underline;
+      text-align: left;
+      padding: 8px 54px 8px 17px;
+    `);
+
+  props.disabled &&
     styles.push(css`
       opacity: 0.25;
     `);
 
-    props.full &&
+  props.full &&
     styles.push(css`
       width: 100%;
     `);
@@ -56,8 +72,25 @@ const buttonStyles = (props) => {
   return styles;
 };
 
+const handleSize = ({ width, height }) => {
+  let styles = [];
+  if (width && width !== "none") {
+    styles.push(css`
+      width: ${width};
+    `);
+  }
+  if (height && height !== "none") {
+    styles.push(css`
+      height: ${height};
+    `);
+  }
+  return styles;
+};
 export const StyledButton = styled.button`
   ${textBase};
   ${(props) => fontSize(props)}
   ${(props) => buttonStyles(props)}
+  ${(props) => handleSize(props)}
+  position: ${props => props.position};
+
 `;
