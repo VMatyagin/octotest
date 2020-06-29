@@ -19,8 +19,8 @@ export const FormField = ({ children, error, description }: FormFieldProps) => {
     <Box responsive responsiveStyle={{ width: "100%" }}>
       <Box width="100%" responsiveStyle={{ width: "538px" }}>
         {children}
+        {error && <ErrorText size="small">{error}</ErrorText>}
       </Box>
-      {error && <ErrorText size="small">{error}</ErrorText>}
       {description && (
         <DescriptionText responsiveStyle={{ width: "500px" }}>
           {description}
