@@ -7,7 +7,9 @@ export const CommonTemplate = ({
   children,
 }: CommonTemplate) => {
   return (
-    <Box gap='medium' pad={{ horizontal: "medium" }}>
+    <Box gap='medium' pad={{ horizontal: "medium" }} responsiveStyle={{
+      padding: "0 60px",
+    }}>
       {header}
       <Box as="main" align='start' gap='medium' width='100%'>
         {children}

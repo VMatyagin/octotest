@@ -26,6 +26,7 @@ export const Header = () => {
       justify="space-between"
       align="center"
       height="80px"
+      id='header'
     >
       <Logo />
       <NavBox direction="row-responsive">

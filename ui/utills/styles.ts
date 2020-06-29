@@ -92,7 +92,13 @@ const fontTheme = {
   link: {
     size: "18px",
     family: "Montserrat",
-    weight: "bols",
+    weight: "bold",
+    style: "normal",
+  },
+  img_fill: {
+    size: "20px",
+    family: "Montserrat",
+    weight: "bold",
     style: "normal",
   },
 };
@@ -113,6 +119,9 @@ const lineTheme = {
   link: {
     height: "160%",
   },
+  img_fill: {
+    height: "160%",
+  }
 };
 
 const buttonTheme = {
@@ -136,6 +145,11 @@ const gapTheme = {
   small: "6px",
   medium: "22px",
   large: "41px",
+  desktop: {
+    small: "15px",
+    medium: "20px",
+    large: "60px",
+  },
 };
 
 const paddingTheme = {
@@ -205,6 +219,7 @@ export const BasicTheme = {
     clipboard: "#FFF2C3",
     error: "#EA4F24",
     basic_dark: "#128ACE",
+    img_fill: "rgba(51, 51, 51, 0.5)"
   },
 
   heading: headingTheme,

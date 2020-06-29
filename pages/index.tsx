@@ -1,8 +1,14 @@
 import { CommonTemplate } from "../ui/templates";
 import { DataStore, StaticBlockType } from "../features/DataStore";
 import { observer, inject } from "mobx-react";
-import { Article, Task, UnderscoreTextBlock, FormSection } from "../ui/organisms";
+import {
+  Article,
+  Task,
+  UnderscoreTextBlock,
+  FormSection,
+} from "../ui/organisms";
 import { TextBlockWithGallery } from "../ui/organisms/TextBlockWithGallery";
+import { getArrayOfImages } from "../features/lib/image-getter";
 
 type Props = {
   dataStore?: DataStore;
@@ -10,18 +16,13 @@ type Props = {
 
 const IndexPage = inject("dataStore")(
   observer((props: Props) => {
-    const { static_blocks, title, content, description, gallery } = props.dataStore!;
-
-    const getArrayOfImages = (item: StaticBlockType) => {
-      let images = [];
-      for (const [key, value] of Object.entries(item)) {
-        key.startsWith("image") &&
-          value !== null &&
-          typeof value == "string" &&
-          images.push(value);
-      }
-      return images;
-    };
+    const {
+      static_blocks,
+      title,
+      content,
+      description,
+      gallery,
+    } = props.dataStore!;
 
     return (
       <CommonTemplate>
@@ -32,7 +33,7 @@ const IndexPage = inject("dataStore")(
           description="Будет круто, если по клику на желтый блок, соответствующая ссылка сразу скопируется в буфер обмена и пользователь получит какое-то максимально естественное уведомление что у него теперь в буфере эта ссылка."
         />
         {static_blocks &&
-          static_blocks.map((item) => {
+          static_blocks.map((item, index) => {
             let images = getArrayOfImages(item);
             return (
               <Article
@@ -41,6 +42,7 @@ const IndexPage = inject("dataStore")(
                 body={item.content}
                 aside={item.description}
                 image={images}
+                id={index == 0? 'blocks' : undefined}
               />
             );
           })}

@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { textBase } from "../../utills/styles";
+import { device } from "../../utills/variables";
 
 const fontSize = (props) => {
   const size = props.size ? props.size : "medium";
@@ -92,5 +93,9 @@ export const StyledButton = styled.button`
   ${(props) => buttonStyles(props)}
   ${(props) => handleSize(props)}
   position: ${props => props.position};
+  @media ${device.laptop} {
+    ${props => props.responsiveTo}
+  }
+  
 
 `;

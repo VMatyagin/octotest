@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
 import { textBase, listBase, tableBase } from "../../utills/styles";
+import { device } from "../../utills/variables"
 
-const fontStyle = ({ bold, italic, color, theme }) => {
+const fontStyle = ({ bold, italic, color, theme, img_fill }) => {
   let styles = [];
   let colorIsExist = theme.colors[color];
 
@@ -23,6 +24,11 @@ const fontStyle = ({ bold, italic, color, theme }) => {
     styles.push(css`
       color: ${colorIsExist};
     `);
+
+    img_fill &&
+    styles.push(css`
+      color: ${theme.colors.white};
+    `);
   return styles;
 };
 
@@ -43,6 +49,12 @@ const fontSize = (props) => {
       text-transform: uppercase;
       line-height: ${props.theme.line.uppercase.height};
       letter-spacing: ${props.theme.font[props.uppercase].letterSpacing};
+    `);
+    props.img_fill &&
+    styles.push(css`
+      font-weight: bold;
+      font-size: ${props.theme.font.img_fill};
+      line-height: ${props.theme.line.img_fill.height};
     `);
   return styles;
 };
@@ -73,6 +85,10 @@ const Text = styled.span`
   ${(props) => fontSize(props)};
   ${(props) => fontStyle(props)};
   ${(props) => handleSize(props)};
+  @media ${device.laptop} {
+    ${(props) => props.responsiveStyle}
+
+  }
 `;
 
-export { Text };
+export { Text }

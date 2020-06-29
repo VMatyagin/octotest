@@ -1,52 +1,36 @@
-# Example app with Storybook and TypeScript.
+# Тестовое задание от OctoberWeb
 
-This example shows a default set up of Storybook plus TypeScript, using [@storybook/preset-typescript](https://github.com/storybookjs/presets/tree/master/packages/preset-typescript). Also included in the example is a custom component included in both Storybook and the Next.js application.
+Задание: [https://www.figma.com/file/94qP7zjf0hYqwwrTj6NEji/OctoTest?node-id=3166%3A1](https://www.figma.com/file/94qP7zjf0hYqwwrTj6NEji/OctoTest?node-id=3166%3A1)
 
-## How to use
+## Установка
 
-### Using `create-next-app`
+ 1. yarn init
+ 2. yarn dev
+ 3. Готово
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+## Что есть из задания
 
-```bash
-npx create-next-app --example with-storybook-typescript with-storybook-app
-# or
-yarn create next-app --example with-storybook-typescript with-storybook-app
-```
+ 0. Загрузка с API (это боль)
+ 1. Два экрана
+ 2. Использование хуков
+ 3. Хок для галереи. Реализует функционал по отображению фотографий
+ 4. Таблица имеет свой скролл на мобильном экране
+ 5. Копирование по нажатию с анимацией
+ 6. Ссылки работают (+якоря) + почта и телефон кликабельны
+ 7. Форма работает + валидация.
+ 8. Использован mobx для загрузки с API
+ 9. Styled Component для стилизации
+ 10. Использована библиотека для парсинга разметки, пришедшей с вашего сервера.
+ 11. Залит на Vercel. Ссылка в описании
+ 
+## Отзыв
+Сделал ровно два экрана (1440 и 375), потому что резина на такой верстке займет очень много времени. Интересное в плане насыщенности задание: там хок и используй, и здесь кастомный скролл сделай, но нету ничего сложного
 
-### Download manually
+## Проблемы
 
-Download the example:
-
-```bash
-curl https://codeload.github.com/vercel/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-storybook-typescript
-cd with-storybook-typescript
-```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
-
-## Run Storybook
-
-```bash
-npm run storybook
-# or
-yarn storybook
-```
-
-## Build Static Storybook
-
-```bash
-npm run build-storybook
-# or
-yarn build-storybook
-```
-
-You can use [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) to deploy Storybook. Specify `storybook-static` as the output directory.
+ 0. Разметка с сервера не дает нормально использовать styled components
+ 1. Кривая разметка. Все пляшет +- 5px,
+ 2. Проблема с визуализацией шрифтов: в Figma они намного чаще влезают в строку, чем в браузере.
+ 3. Не было понятно нужно ли верстать всё или только текстовые блоки, поэтому сверстал все :)
+ 4. UI библиотека обманывает. Много времени потратитил на ее создание, хотя не нужно было.
+ 5. Есть еще что обсудить с дизайнером

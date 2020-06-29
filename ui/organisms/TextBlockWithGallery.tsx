@@ -1,6 +1,18 @@
-import { Box, Text, Heading } from "../atoms";
+import { Box, Text, Heading, Image } from "../atoms";
 import { ClipBoard } from "../molecules";
 import { GalleryType } from "../../features/DataStore";
+import { Gallery } from "../../features/organisms/Gallery";
+import { device } from "../utills/variables";
+import styled from "styled-components";
+import { useRef } from "react";
+
+const StyledImage = styled(Image)`
+  cursor: pointer;
+  @media ${device.laptop} {
+    width: 200px;
+    height: 130px;
+  }
+`;
 
 export const TextBlockWithGallery = ({
   title,
@@ -10,14 +22,66 @@ export const TextBlockWithGallery = ({
   link,
   extra_content,
 }: TextBlockWithGalleryProps) => {
+  const galleryWrapperRef = useRef(null);
+  const imgRef = useRef(null);
+
   return (
-    <Box as="article" align="start" gap="medium" id='gallery'>
+    <Box as="article" align="start" gap="medium" id="gallery" fill="horizontal">
       <Heading level={2}>{title}</Heading>
-      <Text size="large">{content}</Text>
-      {images && images.map(item => item.id)}
-      {description && <Text size="medium">{description}</Text>}
-      {link && <ClipBoard link={link} />}
-      {extra_content && <Text size="small">{extra_content}</Text>}
+      <Text
+        size="large"
+        responsiveStyle={{
+          width: "985px",
+        }}
+      >
+        {content}
+      </Text>
+      <Box
+        direction="row"
+        fill="horizontal"
+        justify="space-between"
+        overflow="hidden"
+        ref={galleryWrapperRef}
+      >
+        <Gallery wrapperRef={galleryWrapperRef} imgRef={imgRef}>
+          {images &&
+            images.map((item, index) => (
+              <StyledImage
+                ref={index === 1 ? imgRef : undefined}
+                key={item.image}
+                src={item.image}
+                width="162px"
+                height="104px"
+                alt="Картинка для привлечения внимания"
+              />
+            ))}
+        </Gallery>
+      </Box>
+      {description && (
+        <Text
+          size="medium"
+          responsiveStyle={{
+            width: "985px",
+          }}
+        >
+          {description}
+        </Text>
+      )}
+      {link && (
+        <Box responsiveStyle={{ width: "1097px" }}>
+          <ClipBoard link={link} />
+        </Box>
+      )}
+      {extra_content && (
+        <Text
+          size="small"
+          responsiveStyle={{
+            width: "985px",
+          }}
+        >
+          {extra_content}
+        </Text>
+      )}
     </Box>
   );
 };

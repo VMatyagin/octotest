@@ -8,7 +8,9 @@ interface ButtonProps {
   height?: SizeType;
   width?: SizeType;
   position?: 'relative' | 'absolute'
-
+  responsiveTo?: {
+    [key: string]: string
+  }
 }
 
 declare const Button: React.FC<ButtonProps & JSX.IntrinsicElements['button']>;

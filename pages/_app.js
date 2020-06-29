@@ -3,6 +3,8 @@ import { BasicTheme, GlobalStyles } from "../ui/utills/styles";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "mobx-react";
 import { fetchInitialStoreState, DataStore } from "../features/DataStore";
+import 'mobx-react-lite/batchingForReactDom'
+
 
 export default class MyApp extends App {
   state = {

@@ -22,6 +22,11 @@ export interface BoxProps {
   maxWidth?: SizeType;
   position?: 'relative' | 'absolute';
   overflow?: "auto" | string;
+  responsive?: boolean;
+  responsiveStyle?: {
+    [key: BoxProps]: string
+  }
+  isFixed?: boolean;
 }
 
 declare const Box: React.FC<BoxProps & JSX.IntrinsicElements['section']>;

@@ -31,14 +31,19 @@ const handleSize = ({ width, maxWidth, height }) => {
   return styles;
 };
 
-const Image = styled.img`
+const Image = styled.img.attrs((props) => ({
+  src:
+    props.src +
+    `?geometry=${props.width.slice(0, -2)}x${props.height.slice(
+      0,
+      -2
+    )}&crop=center`,
+}))`
   ${(props) => handleSize(props)}
   ${(props) => buttonStyles(props)}
 
   overflow: ${(props) => props.overflow};
   position: ${(props) => props.position};
-  margin: 6px 0;
-
 `;
 
 export { Image };

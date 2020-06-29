@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 import { textBase } from "../../utills/styles";
+import { device } from "../../utills/variables"
+
 
 const handleFill = ({ fill }) => {
   let styles = [];
@@ -83,7 +85,7 @@ const handleSize = ({ width, maxWidth, height }) => {
   return styles;
 };
 
-const handleDirection = ({ direction }) => {
+const handleDirection = ({ direction, responsive }) => {
   let styles = [];
   if (direction === "row-responsive") {
     styles.push(css`
@@ -95,6 +97,12 @@ const handleDirection = ({ direction }) => {
       flex-direction: ${direction ? direction : "column"};
     `);
   }
+  responsive &&
+    styles.push(css`
+      @media ${device.laptop} {
+        flex-direction: row;
+      }
+    `);
   return styles;
 };
 
@@ -112,5 +120,8 @@ export const StyledBox = styled.section.attrs((props) => ({
   ${(props) => handleSize(props)}
   position: ${(props) => props.position};
   overflow: ${(props) => props.overflow};
-
+  @media ${device.laptop} {
+    ${ props => props.responsiveStyle};
+  }
+  
 `;

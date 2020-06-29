@@ -38,13 +38,13 @@ export const ContactForm = () => {
       message: "",
       agreement: false,
     },
-    onSubmit: ({ setSubmitting }: FormikValues) => {
+    onSubmit: () => {
       setTimeout(() => {
         setSubmitting(false);
         submit(true);
       }, 4000);
     },
-    validationSchema: ContactValidationSchema,
+    validationSchema: ContactValidationSchema
   };
   const {
     handleSubmit,
@@ -55,6 +55,7 @@ export const ContactForm = () => {
     dirty,
     isSubmitting,
     isValidating,
+    setSubmitting,
   } = useFormik(options);
 
   if (isSubmit) {
@@ -63,7 +64,7 @@ export const ContactForm = () => {
 
   return (
     <form>
-      <Box gap="medium">
+      <Box gap="medium" position='relative' align='center'>
         <FormField
           error={errors.name}
           description="Имя нас не сильно волнует и это поле необязательное"
@@ -84,7 +85,7 @@ export const ContactForm = () => {
             type="tel"
             name="tel"
             placeholder="Телефон"
-            required
+            pattern="\+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}"            required
             onChange={handleChange}
             value={values.tel}
           />
@@ -134,6 +135,7 @@ export const ContactForm = () => {
             disabled={!isValid || !dirty}
             onClick={() => handleSubmit()}
             isLoading={isSubmitting || isValidating}
+            responsiveTo={{width: "306px"}}
           >
             Отправить сообщение
           </Button>
