@@ -2,7 +2,7 @@ import { Box, Heading, Text, Image } from "../atoms";
 import { ParseStringToDOM } from "../../features/lib/parse-dom-string";
 import styled from "styled-components";
 import { device } from "../utills/variables";
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import { useClientRect } from "../../features/lib/useClientRect";
 
 const StyledImage = styled(Image)`
@@ -13,10 +13,9 @@ const StyledImage = styled(Image)`
 `;
 
 export const Article = ({ title, body, aside, image, id }: ArticleProps) => {
-  const [isFixed, setFixed] = useState(false);
-  const [parentRect, parentRef] = useClientRect();
-  const [asideRect, asideRef] = useClientRect();
-
+  const [isFixed,] = useState(false);
+  const [, parentRef] = useClientRect();
+  const [, asideRef] = useClientRect();
   return (
     <Box
       as="article"
