@@ -1,8 +1,9 @@
 import { TextInput, Box, TextArea, CheckBox, Button } from "../../ui/atoms";
 import { FormField } from "../../ui/molecules";
-import React from "react";
+import React, { useState } from "react";
 import { useFormik, FormikValues } from "formik";
 import * as Yup from "yup";
+import { SuccessMessage } from "../molecules";
 
 const ContactValidationSchema = Yup.object().shape({
   name: Yup.string()
@@ -27,6 +28,8 @@ const ContactValidationSchema = Yup.object().shape({
 });
 
 export const ContactForm = () => {
+  const [isSubmit, submit] = useState<boolean>(false);
+
   const options = {
     initialValues: {
       name: "",
@@ -35,8 +38,11 @@ export const ContactForm = () => {
       message: "",
       agreement: false,
     },
-    onSubmit: (values: FormikValues) => {
-      console.log(values);
+    onSubmit: ({ setSubmitting }: FormikValues) => {
+      setTimeout(() => {
+        setSubmitting(false);
+        submit(true);
+      }, 4000);
     },
     validationSchema: ContactValidationSchema,
   };
@@ -47,7 +53,13 @@ export const ContactForm = () => {
     errors,
     isValid,
     dirty,
+    isSubmitting,
+    isValidating,
   } = useFormik(options);
+
+  if (isSubmit) {
+    return <SuccessMessage />;
+  }
 
   return (
     <form>
@@ -120,7 +132,8 @@ export const ContactForm = () => {
             primary
             type="button"
             disabled={!isValid || !dirty}
-            onClick={handleSubmit}
+            onClick={() => handleSubmit()}
+            isLoading={isSubmitting || isValidating}
           >
             Отправить сообщение
           </Button>

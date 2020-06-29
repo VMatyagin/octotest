@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { ProgressBarProps } from "./index";
+import { device } from "../../utills/variables"
 
 const ProgressBarLayout = styled.div`
   position: relative;
   height: 3px;
   width: 100%;
   background: ${(props) => props.theme.colors.brand};
+
+  @media ${device.laptop} {
+    display: none; 
+  }
 `;
 
 const Filler = styled.div<ProgressBarProps>`
