@@ -62,7 +62,6 @@ export class DataStore {
         : [];
   }
 
-  changeTitle(newTitle: string) {}
 }
 
 export async function fetchInitialStoreState() {

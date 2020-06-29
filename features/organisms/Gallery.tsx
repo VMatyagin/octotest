@@ -1,6 +1,6 @@
 import { withGallery } from "../lib/withGallery";
 import styled from "styled-components";
-import { Image, Box, Text } from "../../ui/atoms";
+import { Text } from "../../ui/atoms";
 
 const Wrapper = styled.div`
   position: relative;
@@ -40,7 +40,7 @@ const SimpleGallery = ({ children, countOfVisible, hidden }: GalleryProps) => {
         }
         if (index < countOfVisible) {
           if (index == countOfVisible - 1) {
-            return <ShadowedImageWrapper children={item} key={item.key} hidden={hidden} />;
+            return <ShadowedImageWrapper children={item} hidden={hidden} />;
           }
           return item;
         }
