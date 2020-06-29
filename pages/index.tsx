@@ -1,5 +1,5 @@
 import { CommonTemplate } from "../ui/templates";
-import { DataStore, StaticBlockType } from "../features/DataStore";
+import { DataStore } from "../features/DataStore";
 import { observer, inject } from "mobx-react";
 import {
   Article,

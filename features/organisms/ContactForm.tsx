@@ -1,7 +1,7 @@
 import { TextInput, Box, TextArea, CheckBox, Button } from "../../ui/atoms";
 import { FormField } from "../../ui/molecules";
 import React, { useState } from "react";
-import { useFormik, FormikValues } from "formik";
+import { useFormik } from "formik";
 import * as Yup from "yup";
 import { SuccessMessage } from "../molecules";
 
